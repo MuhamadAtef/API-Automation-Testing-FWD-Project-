@@ -1,0 +1,585 @@
+{
+	"info": {
+		"_postman_id": "4a5cd2eb-89e8-4812-82fc-62f617b468d5",
+		"name": "FWD TrelloAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20965501"
+	},
+	"item": [
+		{
+			"name": "GetCredentials&FirstBoardID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var Data = pm.response.json();\r",
+							"\r",
+							"console.log(\"The idBoards \" + Data.idBoards);\r",
+							"\r",
+							"//set first idboard\r",
+							"var expectFirstBoardID = Data.idBoards[0];\r",
+							"pm.environment.set(\"ActualFirstBoardID\",expectFirstBoardID);\r",
+							"\r",
+							"var getFirstBoardId = pm.environment.get(\"ActualFirstBoardID\")\r",
+							"console.log(\"first idBoards \" + getFirstBoardId);\r",
+							"\r",
+							"// get and test 1st idBoard\r",
+							"pm.test(\"Get and validate 1st idBoard num\" ,function(){\r",
+							"    pm.expect(expectFirstBoardID).to.eql(getFirstBoardId);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"var countBeforeAddingBoard = Data.boards.length;\r",
+							"\r",
+							"//console.log(\"The number of existing boards in the response body is: \" + countBeforeAddingBoard);\r",
+							"\r",
+							"pm.test('Number of boards = ' + countBeforeAddingBoard, function () {\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "b60866c278ca44584eb7eeff1826a13f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}members/me?boards=open&key={{key}}&token={{Token}}",
+					"host": [
+						"{{BaseURL}}members"
+					],
+					"path": [
+						"me"
+					],
+					"query": [
+						{
+							"key": "boards",
+							"value": "open"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{Token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a Board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"verify default values like 'closed' is 'false'\", () => {\r",
+							"    pm.expect(jsonData.closed).to.be.false\r",
+							"})\r",
+							"\r",
+							"pm.test(\"verify default values like 'permissionLevel' = 'private'\", () => {\r",
+							"    pm.expect(jsonData.prefs.permissionLevel).to.eql(\"private\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"verify default values like 'canBePublic' is 'true'\", () => {\r",
+							"    pm.expect(jsonData.prefs.canBePublic).to.be.true\r",
+							"})\r",
+							"\r",
+							"pm.test(\"verify default values like 'canInvite' is 'true'\", () => {\r",
+							"    pm.expect(jsonData.prefs.canInvite).to.be.a(\"boolean\")\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "b60866c278ca44584eb7eeff1826a13f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}boards/?name={FWD API Testing}&key={{key}}&token={{Token}}",
+					"host": [
+						"{{BaseURL}}boards"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{FWD API Testing}"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{Token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLastBoardNumbers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json();\r",
+							"var countAfterAddingBoard = data.boards.length\r",
+							"pm.test('Number of boards = ' + countAfterAddingBoard, function () {\r",
+							"});\r",
+							"\r",
+							"//set last idboard\r",
+							"var lastBoardIdIndex = (data.idBoards.length)-1;\r",
+							"console.log(\"last idBoard index : \" + lastBoardIdIndex);\r",
+							"var expectLastBoardID = data.idBoards[lastBoardIdIndex];\r",
+							"pm.environment.set(\"ActualLastBoardID\",expectLastBoardID);\r",
+							"\r",
+							"var getLastBoardId = pm.environment.get(\"ActualLastBoardID\")\r",
+							"console.log(\"last idBoards num : \" + getLastBoardId);\r",
+							"\r",
+							"// get and test last idBoard\r",
+							"pm.test(\"Get and validate last idBoard num\" ,function(){\r",
+							"    pm.expect(expectLastBoardID).to.eql(getLastBoardId);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "b60866c278ca44584eb7eeff1826a13f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}members/me?boards=open&key={{key}}&token={{Token}}",
+					"host": [
+						"{{BaseURL}}members"
+					],
+					"path": [
+						"me"
+					],
+					"query": [
+						{
+							"key": "boards",
+							"value": "open"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{Token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a List at last board created",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"verify default values like 'closed' is 'false'\", () => {\r",
+							"   pm.expect(jsonData.closed).to.be.false\r",
+							"})\r",
+							"\r",
+							"pm.test(\"verify 'limits' are empty object {}\", () => {\r",
+							"    pm.expect(jsonData.limits).to.be.empty\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Verify ID key is existed in the response\",() => {\r",
+							"   \r",
+							"   pm.expect(jsonData).to.have.property('id');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify name key is existed in the response\",() => {\r",
+							"   \r",
+							"   pm.expect(jsonData).to.have.property('name');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify idBoard key is existed in the response\",() => {\r",
+							"   pm.expect(jsonData).to.have.property('idBoard');\r",
+							"\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "b60866c278ca44584eb7eeff1826a13f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}lists/?name={last list}&idBoard={{ActualLastBoardID}}&key={{key}}&token={{Token}}",
+					"host": [
+						"{{BaseURL}}lists"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{last list}"
+						},
+						{
+							"key": "idBoard",
+							"value": "{{ActualLastBoardID}}"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{Token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Lists on a Board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var Data = pm.response.json();\r",
+							"\r",
+							"console.log(\"The idBoards \" + Data[0].id);\r",
+							"\r",
+							"//get first list ID from database \r",
+							"var FirstCreatedListIdIndex = (Data.length)-1;\r",
+							"console.log(\"First creaded ListID index : \" + FirstCreatedListIdIndex);\r",
+							"console.log(\"First creaded ListID is : \" + Data[FirstCreatedListIdIndex].id);\r",
+							"//set first list ID on environment \r",
+							"var expectFirstListID = Data[FirstCreatedListIdIndex].id;\r",
+							"pm.environment.set(\"ActualFirstCreatedListID\",expectFirstListID);\r",
+							"//get first list ID from envirnment \r",
+							"var getFirstListId = pm.environment.get(\"ActualFirstCreatedListID\")\r",
+							"console.log(\"first List id from environment : \" + getFirstListId);\r",
+							"\r",
+							"\r",
+							"\r",
+							"// get and test 1st list id \r",
+							"pm.test(\"Get and validate 1st list ID num\" ,function(){\r",
+							"    pm.expect(expectFirstListID).to.eql(getFirstListId);\r",
+							"});\r",
+							"\r",
+							"console.log(\"name is : \" + Data[FirstCreatedListIdIndex].name);\r",
+							"pm.test(\"validate 1st default created listID is named by 'Done' \" ,function(){\r",
+							"    pm.expect(Data[FirstCreatedListIdIndex].name).to.eql(\"Done\");\r",
+							"});\r",
+							"\r",
+							"console.log(\"name is : \" + Data[FirstCreatedListIdIndex-1].name);\r",
+							"pm.test(\"validate 2nd default created listID is named by 'Doing' \" ,function(){\r",
+							"    pm.expect(Data[FirstCreatedListIdIndex-1].name).to.eql(\"Doing\");\r",
+							"});\r",
+							"\r",
+							"console.log(\"name is : \" + Data[FirstCreatedListIdIndex-2].name);\r",
+							"pm.test(\"validate 3rd default created listID is named by 'To Do' \" ,function(){\r",
+							"    pm.expect(Data[FirstCreatedListIdIndex-2].name).to.eql(\"To Do\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"//set last created list id \r",
+							"var expectLastListID = Data[0].id;\r",
+							"pm.environment.set(\"ActualLastCreatedLListID\",expectLastListID);\r",
+							"\r",
+							"var getLastListId = pm.environment.get(\"ActualLastCreatedLListID\")\r",
+							"console.log(\"last created list id num : \" + getLastListId);\r",
+							"\r",
+							"// get and test last created list id \r",
+							"pm.test(\"Get and validate last list id num\" ,function(){\r",
+							"    pm.expect(expectLastListID).to.eql(getLastListId);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "b60866c278ca44584eb7eeff1826a13f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}boards/{{ActualLastBoardID}}/lists?key={{key}}&token={{Token}}",
+					"host": [
+						"{{BaseURL}}boards"
+					],
+					"path": [
+						"{{ActualLastBoardID}}",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{Token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Archive or un-archive a list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"console.log(pm.response.headers.get(\"Set-Cookie\"))\r",
+							"pm.test(\"check on header value\",function(){\r",
+							"pm.expect(pm.response.headers.get(\"Set-Cookie\")).to.include\r",
+							"(\"isEnterpriseAdmin%3Dfalse\");\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}lists/{{ActualLastCreatedLListID}}/closed?key={{key}}&token={{Token}}&value=true&idBoard={{ActualLastBoardID}}",
+					"host": [
+						"{{BaseURL}}lists"
+					],
+					"path": [
+						"{{ActualLastCreatedLListID}}",
+						"closed"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{Token}}"
+						},
+						{
+							"key": "value",
+							"value": "true"
+						},
+						{
+							"key": "idBoard",
+							"value": "{{ActualLastBoardID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Body should contain a meaningful message like 'board is removed successfully'\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"board is removed successfully\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}boards/{{ActualLastBoardID}}?key={{key}}&token={{Token}}",
+					"host": [
+						"{{BaseURL}}boards"
+					],
+					"path": [
+						"{{ActualLastBoardID}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{Token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
