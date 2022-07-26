@@ -1,0 +1,252 @@
+{
+	"id": "9b6d7a83-6fea-4229-884a-f1b1479283ed",
+	"name": "FWD FakeRESTAPI",
+	"timestamp": "2022-07-26T20:01:07.290Z",
+	"collection_id": "20965501-eb0b83b7-e526-44f6-9821-783121a10c2b",
+	"folder_id": 0,
+	"environment_id": "20965501-f3284285-5ab3-4f88-afa8-d3ba3f18784e",
+	"totalPass": 13,
+	"totalFail": 1,
+	"results": [
+		{
+			"id": "a4bbc084-e2a8-4328-8ebc-d1adfab2c2c5",
+			"name": "GetAuthors",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
+			"time": 253,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"check response status": true,
+				"Status code is 200": true,
+				"Status response is OK": true
+			},
+			"testPassFailCounts": {
+				"check response status": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status response is OK": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				253
+			],
+			"allTests": [
+				{
+					"check response status": true,
+					"Status code is 200": true,
+					"Status response is OK": true
+				}
+			]
+		},
+		{
+			"id": "f117c64d-077e-4c3c-8a49-470f64b571fd",
+			"name": "Post",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
+			"time": 90,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Successful POST request": true,
+				"Status code name is 'OK' ": true,
+				"Status code name is 'created' ": true,
+				"if first or second is missed status code will be 400": false
+			},
+			"testPassFailCounts": {
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name is 'OK' ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name is 'created' ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"if first or second is missed status code will be 400": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				90
+			],
+			"allTests": [
+				{
+					"Successful POST request": true,
+					"Status code name is 'OK' ": true,
+					"Status code name is 'created' ": true,
+					"if first or second is missed status code will be 400": false
+				}
+			]
+		},
+		{
+			"id": "6d46374f-2037-40be-b510-5c78b36a06b0",
+			"name": "GetBooks",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/2%0A",
+			"time": 105,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				105
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "5b95a129-85e7-43d2-b69b-70b7a04ed975",
+			"name": "UpdateRecorded",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/1",
+			"time": 92,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"check updated value at firstName field": true,
+				"Status code is 200 and Author's data is updated successfully": true
+			},
+			"testPassFailCounts": {
+				"check updated value at firstName field": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200 and Author's data is updated successfully": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				92
+			],
+			"allTests": [
+				{
+					"check updated value at firstName field": true,
+					"Status code is 200 and Author's data is updated successfully": true
+				}
+			]
+		},
+		{
+			"id": "5ce5617a-ef2d-4681-815e-eacf973a173a",
+			"name": "GetAuthorsByID",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/1",
+			"time": 94,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"check response status is 200 OK": true,
+				"Objects inside response contain": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"check response status is 200 OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Objects inside response contain": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				94
+			],
+			"allTests": [
+				{
+					"check response status is 200 OK": true,
+					"Objects inside response contain": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "e69e6d75-2fdf-4dd5-be71-d9deb2aa511a",
+			"name": "DeleteRecord",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/1",
+			"time": 98,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				98
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 732,
+	"collection": {
+		"requests": [
+			{
+				"id": "a4bbc084-e2a8-4328-8ebc-d1adfab2c2c5",
+				"method": "GET"
+			},
+			{
+				"id": "f117c64d-077e-4c3c-8a49-470f64b571fd",
+				"method": "POST"
+			},
+			{
+				"id": "6d46374f-2037-40be-b510-5c78b36a06b0",
+				"method": "GET"
+			},
+			{
+				"id": "5b95a129-85e7-43d2-b69b-70b7a04ed975",
+				"method": "PUT"
+			},
+			{
+				"id": "5ce5617a-ef2d-4681-815e-eacf973a173a",
+				"method": "GET"
+			},
+			{
+				"id": "e69e6d75-2fdf-4dd5-be71-d9deb2aa511a",
+				"method": "DELETE"
+			}
+		]
+	}
+}
