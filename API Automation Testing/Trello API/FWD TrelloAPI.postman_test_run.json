@@ -1,43 +1,37 @@
 {
-	"id": "e671b9a2-558a-491f-8d62-3b916b035bce",
+	"id": "d581b652-49a2-4ca7-90f4-590090ec4451",
 	"name": "FWD TrelloAPI",
-	"timestamp": "2022-07-23T23:20:50.512Z",
+	"timestamp": "2022-07-28T15:37:38.724Z",
 	"collection_id": "20965501-4a5cd2eb-89e8-4812-82fc-62f617b468d5",
 	"folder_id": 0,
 	"environment_id": "20965501-f03e6894-8f07-4029-b9d4-f62027321a63",
-	"totalPass": 22,
+	"totalPass": 21,
 	"totalFail": 1,
 	"results": [
 		{
-			"id": "66104bd4-44b2-4f51-b692-2752114b3789",
-			"name": "GetCredentials&FirstBoardID",
+			"id": "9e9bf3b5-d3a9-4917-86e0-567c69ed2d25",
+			"name": "GetFirstBoardID",
 			"url": "https://api.trello.com/1/members/me?boards=open&key=b60866c278ca44584eb7eeff1826a13f&token=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d&b60866c278ca44584eb7eeff1826a13f=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
-			"time": 513,
+			"time": 762,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Get and validate 1st idBoard num": true,
-				"Number of boards = 2": true
+				"Get and validate 1st idBoard num": true
 			},
 			"testPassFailCounts": {
 				"Get and validate 1st idBoard num": {
 					"pass": 1,
 					"fail": 0
-				},
-				"Number of boards = 2": {
-					"pass": 1,
-					"fail": 0
 				}
 			},
 			"times": [
-				513
+				762
 			],
 			"allTests": [
 				{
-					"Get and validate 1st idBoard num": true,
-					"Number of boards = 2": true
+					"Get and validate 1st idBoard num": true
 				}
 			]
 		},
@@ -45,7 +39,7 @@
 			"id": "95576788-b0cc-46e7-b46b-0bf36d5120de",
 			"name": "Create a Board",
 			"url": "https://api.trello.com/1/boards/?name={FWD%20API%20Testing}&key=b60866c278ca44584eb7eeff1826a13f&token=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d&b60866c278ca44584eb7eeff1826a13f=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
-			"time": 363,
+			"time": 532,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -75,7 +69,7 @@
 				}
 			},
 			"times": [
-				363
+				532
 			],
 			"allTests": [
 				{
@@ -90,17 +84,17 @@
 			"id": "5c74a62f-19bc-4d9f-a564-699e93bbb31f",
 			"name": "GetLastBoardNumbers",
 			"url": "https://api.trello.com/1/members/me?boards=open&key=b60866c278ca44584eb7eeff1826a13f&token=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d&b60866c278ca44584eb7eeff1826a13f=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
-			"time": 247,
+			"time": 396,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"Number of boards = 3": true,
+				"Number of boards = 7": true,
 				"Get and validate last idBoard num": true
 			},
 			"testPassFailCounts": {
-				"Number of boards = 3": {
+				"Number of boards = 7": {
 					"pass": 1,
 					"fail": 0
 				},
@@ -110,11 +104,11 @@
 				}
 			},
 			"times": [
-				247
+				396
 			],
 			"allTests": [
 				{
-					"Number of boards = 3": true,
+					"Number of boards = 7": true,
 					"Get and validate last idBoard num": true
 				}
 			]
@@ -122,8 +116,8 @@
 		{
 			"id": "7397d525-7132-43c6-ae2b-0b8d4b506c10",
 			"name": "Create a List at last board created",
-			"url": "https://api.trello.com/1/lists/?name={last%20list}&idBoard=62dc825022e8b56465a73bba&key=b60866c278ca44584eb7eeff1826a13f&token=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d&b60866c278ca44584eb7eeff1826a13f=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
-			"time": 396,
+			"url": "https://api.trello.com/1/lists/?name={last%20list}&idBoard=62e2ad40c83bb464461a38a0&key=b60866c278ca44584eb7eeff1826a13f&token=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d&b60866c278ca44584eb7eeff1826a13f=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
+			"time": 369,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -158,7 +152,7 @@
 				}
 			},
 			"times": [
-				396
+				369
 			],
 			"allTests": [
 				{
@@ -173,8 +167,8 @@
 		{
 			"id": "78af7e02-621e-4bef-bbfd-af6c38b041ea",
 			"name": "Get Lists on a Board",
-			"url": "https://api.trello.com/1/boards/62dc825022e8b56465a73bba/lists?key=b60866c278ca44584eb7eeff1826a13f&token=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d&b60866c278ca44584eb7eeff1826a13f=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
-			"time": 354,
+			"url": "https://api.trello.com/1/boards/62e2ad40c83bb464461a38a0/lists?key=b60866c278ca44584eb7eeff1826a13f&token=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d&b60866c278ca44584eb7eeff1826a13f=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
+			"time": 322,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -209,7 +203,7 @@
 				}
 			},
 			"times": [
-				354
+				322
 			],
 			"allTests": [
 				{
@@ -224,8 +218,8 @@
 		{
 			"id": "e9db9a28-7590-47cb-8748-98af5356b825",
 			"name": "Archive or un-archive a list",
-			"url": "https://api.trello.com/1/lists/62dc8251ccc15c6a139236df/closed?key=b60866c278ca44584eb7eeff1826a13f&token=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d&value=true&idBoard=62dc825022e8b56465a73bba",
-			"time": 584,
+			"url": "https://api.trello.com/1/lists/62e2ad4115592803ecee70ed/closed?key=b60866c278ca44584eb7eeff1826a13f&token=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d&value=true&idBoard=62e2ad40c83bb464461a38a0",
+			"time": 387,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -250,7 +244,7 @@
 				}
 			},
 			"times": [
-				584
+				387
 			],
 			"allTests": [
 				{
@@ -263,8 +257,8 @@
 		{
 			"id": "377aae36-85f0-4b0b-ba21-45befa84cfdc",
 			"name": "Delete a Board",
-			"url": "https://api.trello.com/1/boards/62dc825022e8b56465a73bba?key=b60866c278ca44584eb7eeff1826a13f&token=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
-			"time": 693,
+			"url": "https://api.trello.com/1/boards/62e2ad40c83bb464461a38a0?key=b60866c278ca44584eb7eeff1826a13f&token=9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
+			"time": 608,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -284,7 +278,7 @@
 				}
 			},
 			"times": [
-				693
+				608
 			],
 			"allTests": [
 				{
@@ -295,11 +289,11 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 3150,
+	"totalTime": 3376,
 	"collection": {
 		"requests": [
 			{
-				"id": "66104bd4-44b2-4f51-b692-2752114b3789",
+				"id": "9e9bf3b5-d3a9-4917-86e0-567c69ed2d25",
 				"method": "GET"
 			},
 			{

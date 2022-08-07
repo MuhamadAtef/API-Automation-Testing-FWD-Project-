@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "ffff90b6-23fe-4cf4-ac04-03d41fa175db",
+		"name": "Return All Boards",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20965501"
+	},
+	"item": [
+		{
+			"name": "GetCredentials",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var Data = pm.response.json();\r",
+							"\r",
+							"console.log(\"The idBoards \" + Data.idBoards);\r",
+							"/*\r",
+							"//set first idboard\r",
+							"var expectFirstBoardID = Data.idBoards[0];\r",
+							"pm.environment.set(\"ActualFirstBoardID\",expectFirstBoardID);\r",
+							"\r",
+							"var getFirstBoardId = pm.environment.get(\"ActualFirstBoardID\")\r",
+							"console.log(\"first idBoards \" + getFirstBoardId);\r",
+							"\r",
+							"// get and test 1st idBoard\r",
+							"pm.test(\"Get and validate 1st idBoard num\" ,function(){\r",
+							"    pm.expect(expectFirstBoardID).to.eql(getFirstBoardId);\r",
+							"});\r",
+							"\r",
+							"*/\r",
+							"\r",
+							"var countBeforeAddingBoard = Data.boards.length;\r",
+							"\r",
+							"//console.log(\"The number of existing boards in the response body is: \" + countBeforeAddingBoard);\r",
+							"\r",
+							"pm.test('Number of boards = ' + countBeforeAddingBoard, function () {\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						},
+						{
+							"key": "value",
+							"value": "9b99096095c90461b25a23de1b7f6597529fe0015f0b30a4fa82b7b37244144d",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "b60866c278ca44584eb7eeff1826a13f",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}members/me?boards=open&key={{key}}&token={{Token}}",
+					"host": [
+						"{{BaseURL}}members"
+					],
+					"path": [
+						"me"
+					],
+					"query": [
+						{
+							"key": "boards",
+							"value": "open"
+						},
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{Token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

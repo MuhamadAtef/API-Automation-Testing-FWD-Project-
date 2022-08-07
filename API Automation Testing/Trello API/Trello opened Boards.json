@@ -1,0 +1,119 @@
+{
+    "id": "623b3e53912d4a72f2c33425",
+    "aaId": "623b3e518d8b9c0068b84cd0",
+    "activityBlocked": false,
+    "avatarHash": "55dcc51dcdab60852faed81d21867405",
+    "avatarUrl": "https://trello-members.s3.amazonaws.com/623b3e53912d4a72f2c33425/55dcc51dcdab60852faed81d21867405",
+    "bio": "",
+    "bioData": null,
+    "confirmed": true,
+    "fullName": "Muhamad Atef",
+    "idEnterprise": null,
+    "idEnterprisesDeactivated": [],
+    "idMemberReferrer": null,
+    "idPremOrgsAdmin": [],
+    "initials": "MA",
+    "memberType": "normal",
+    "nonPublic": {},
+    "nonPublicAvailable": true,
+    "products": [],
+    "url": "https://trello.com/muhamadatef",
+    "username": "muhamadatef",
+    "status": "disconnected",
+    "aaBlockSyncUntil": null,
+    "aaEmail": null,
+    "aaEnrolledDate": null,
+    "avatarSource": "none",
+    "credentialsRemovedCount": 0,
+    "domainClaimed": null,
+    "email": "eng.muhamadatef@gmail.com",
+    "goldSunsetFreeTrialIdOrganization": null,
+    "gravatarHash": "137f30fe6bdd4c56a8e0f94ab698985a",
+    "idBoards": [
+        "623b3ee66fc387783d2b66f7",
+        "6287aac4bd345472a0fcc892",
+        "62d189ba1ba2da0e998ef2f2",
+        "62e0499d3750d806c57adc17"
+    ],
+    "idOrganizations": [
+        "623b3e689638df5d26729639"
+    ],
+    "idEnterprisesAdmin": [],
+    "limits": {
+        "boards": {
+            "totalPerMember": {
+                "status": "ok",
+                "disableAt": 4500,
+                "warnAt": 3600
+            }
+        },
+        "orgs": {
+            "totalPerMember": {
+                "status": "ok",
+                "disableAt": 850,
+                "warnAt": 680
+            }
+        }
+    },
+    "loginTypes": [
+        "atlassian"
+    ],
+    "marketingOptIn": {
+        "optedIn": true,
+        "date": "2022-03-23T15:35:49.033Z"
+    },
+    "messagesDismissed": [],
+    "oneTimeMessagesDismissed": [
+        "sent-possible-new-signup-event",
+        "close-menu-of-first-board",
+        "team-template-picker-623b3e689638df5d26729639",
+        "623b3e689638df5d26729639-memberHomeScreenPromptFull"
+    ],
+    "prefs": {
+        "privacy": {
+            "fullName": "public",
+            "avatar": "public"
+        },
+        "sendSummaries": true,
+        "minutesBetweenSummaries": 60,
+        "minutesBeforeDeadlineToNotify": 1440,
+        "colorBlind": false,
+        "locale": "en-US"
+    },
+    "trophies": [],
+    "uploadedAvatarHash": null,
+    "uploadedAvatarUrl": null,
+    "premiumFeatures": [
+        "additionalBoardBackgrounds",
+        "additionalStickers",
+        "customBoardBackgrounds",
+        "customEmoji",
+        "customStickers",
+        "plugins"
+    ],
+    "isAaMastered": true,
+    "ixUpdate": "122",
+    "boards": [
+        {
+            "id": "623b3ee66fc387783d2b66f7",
+            "name": "HealthCare Web Application",
+            "closed": false,
+            "idOrganization": "623b3e689638df5d26729639",
+            "pinned": false
+        },
+        {
+            "id": "6287aac4bd345472a0fcc892",
+            "name": "YallaDriveWebSite",
+            "closed": false,
+            "idOrganization": "623b3e689638df5d26729639",
+            "pinned": false
+        },
+        {
+            "id": "62e0499d3750d806c57adc17",
+            "name": "{FWD API Testing}",
+            "closed": false,
+            "idOrganization": "623b3e689638df5d26729639",
+            "pinned": false
+        }
+    ]
+}

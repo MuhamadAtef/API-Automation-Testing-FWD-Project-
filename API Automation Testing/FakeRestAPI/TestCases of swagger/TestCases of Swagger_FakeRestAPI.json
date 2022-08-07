@@ -1,0 +1,88 @@
+
+***website http://fakerestapi.azurewebsites.net/index.html***
+
+Request 1 
+API: GET /api/v1/Authors
+ 
+ [
+ Test Case 1: response should be 200 OK
+ Expected Result: 200 OK
+ Actual Result: 200 OK
+ Status: Pass
+,
+
+Test Case 2: Objects inside response contain, id, idBook, firstName, lastName.
+ Expected Result: 'id','idBook','firstName','lastName'
+ Actual Result: 'id','idBook','firstName','lastName'
+ Status: Pass
+]
+
+/////////////////////////////////////////////
+
+Request 2
+ API: POST /api/v1/Authors
+ 
+ [
+ Test Case 1: Register a new valid Author successfully and response code "201 Created".
+   Expected Result: Response code 201
+   Actual Result: Response code 200
+   Status: Fail
+ 
+,
+ Test Case 2: firstname & lastname should be mandatory fields. 
+   Expected Result: An Error message "Bad Request" and Response code 400
+   Actual Result: Requested body is accepted and created and Response code is 200 
+   Status: Fail
+]
+
+////////////////////////////////////////////////////
+
+Request 3
+GET /api/v1/Authors/authors/books/{idBook}
+
+[
+Test Case 1: Searching with valid idBook should return relative data in response body.
+   Expected Result: All relative data are returned in response body and resonse code is 200
+   Actual Result: All relative data are returned in response body and resonse code is 200
+   Status: Pass
+
+
+,
+Test Case 2: Searching with invalid idBook.
+   Expected Result: Response code 400 and an error message has appeared
+   Actual Result: Response code 200
+   Status: Fail
+]
+
+///////////////////////////////////////////////////
+
+Request 4
+PUT /api/v1/Authors/{id}
+[
+Test Case 1: update "firstname" at an exisit Author .
+   Expected Result: "firstname" is updated successfully 
+   Actual Result: "firstname" is updated successfully
+   Status: Pass
+,
+Test Case 2: check response code of update in an exisit Author .
+   Expected Result: Response code 202
+   Actual Result: Response code 200
+   Status: Fail
+]
+
+/////////////////////////////////////
+
+Request 5 
+API: GET /api/v1/Authors (get updated Id)
+ 
+ [
+ Test Case 1: check author's data "firstname" at updated recorded has changed 
+ Expected Result: the updated field"firstname" has been updated in response body
+ Actual Result: the old data has been appeared at response body
+ Status: Fail
+,
+Test Case 2: check response code of updated recorded .
+   Expected Result: Response code 200 OK
+   Actual Result: Response code 200 OK
+   Status: Pass
+]

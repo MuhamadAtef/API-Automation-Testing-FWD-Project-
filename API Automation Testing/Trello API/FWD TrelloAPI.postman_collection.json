@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "GetCredentials&FirstBoardID",
+			"name": "GetFirstBoardID",
 			"event": [
 				{
 					"listen": "test",
@@ -30,13 +30,14 @@
 							"});\r",
 							"\r",
 							"\r",
-							"\r",
+							"/*\r",
 							"var countBeforeAddingBoard = Data.boards.length;\r",
 							"\r",
 							"//console.log(\"The number of existing boards in the response body is: \" + countBeforeAddingBoard);\r",
 							"\r",
 							"pm.test('Number of boards = ' + countBeforeAddingBoard, function () {\r",
 							"});\r",
+							"*/\r",
 							""
 						],
 						"type": "text/javascript"
@@ -115,7 +116,12 @@
 							"\r",
 							"pm.test(\"verify default values like 'canInvite' is 'true'\", () => {\r",
 							"    pm.expect(jsonData.prefs.canInvite).to.be.a(\"boolean\")\r",
-							"})"
+							"})\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
 						],
 						"type": "text/javascript"
 					}

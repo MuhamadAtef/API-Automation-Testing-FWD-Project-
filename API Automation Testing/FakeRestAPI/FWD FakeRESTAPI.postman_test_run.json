@@ -1,18 +1,18 @@
 {
-	"id": "9b6d7a83-6fea-4229-884a-f1b1479283ed",
+	"id": "56ee0f23-82f2-4184-bcfb-5fbd102b2cbe",
 	"name": "FWD FakeRESTAPI",
-	"timestamp": "2022-07-26T20:01:07.290Z",
+	"timestamp": "2022-08-07T11:45:48.546Z",
 	"collection_id": "20965501-eb0b83b7-e526-44f6-9821-783121a10c2b",
 	"folder_id": 0,
 	"environment_id": "20965501-f3284285-5ab3-4f88-afa8-d3ba3f18784e",
-	"totalPass": 13,
-	"totalFail": 1,
+	"totalPass": 12,
+	"totalFail": 2,
 	"results": [
 		{
 			"id": "a4bbc084-e2a8-4328-8ebc-d1adfab2c2c5",
 			"name": "GetAuthors",
 			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
-			"time": 253,
+			"time": 1115,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -37,7 +37,7 @@
 				}
 			},
 			"times": [
-				253
+				1115
 			],
 			"allTests": [
 				{
@@ -51,7 +51,7 @@
 			"id": "f117c64d-077e-4c3c-8a49-470f64b571fd",
 			"name": "Post",
 			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
-			"time": 90,
+			"time": 128,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -81,7 +81,7 @@
 				}
 			},
 			"times": [
-				90
+				128
 			],
 			"allTests": [
 				{
@@ -96,7 +96,7 @@
 			"id": "6d46374f-2037-40be-b510-5c78b36a06b0",
 			"name": "GetBooks",
 			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/2%0A",
-			"time": 105,
+			"time": 131,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -111,7 +111,7 @@
 				}
 			},
 			"times": [
-				105
+				131
 			],
 			"allTests": [
 				{
@@ -122,18 +122,18 @@
 		{
 			"id": "5b95a129-85e7-43d2-b69b-70b7a04ed975",
 			"name": "UpdateRecorded",
-			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/1",
-			"time": 92,
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/15",
+			"time": 128,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
 			},
 			"tests": {
-				"check updated value at firstName field": true,
+				"check updated value at firstName field is 'Muhammaddd' ": true,
 				"Status code is 200 and Author's data is updated successfully": true
 			},
 			"testPassFailCounts": {
-				"check updated value at firstName field": {
+				"check updated value at firstName field is 'Muhammaddd' ": {
 					"pass": 1,
 					"fail": 0
 				},
@@ -143,11 +143,11 @@
 				}
 			},
 			"times": [
-				92
+				128
 			],
 			"allTests": [
 				{
-					"check updated value at firstName field": true,
+					"check updated value at firstName field is 'Muhammaddd' ": true,
 					"Status code is 200 and Author's data is updated successfully": true
 				}
 			]
@@ -155,8 +155,8 @@
 		{
 			"id": "5ce5617a-ef2d-4681-815e-eacf973a173a",
 			"name": "GetAuthorsByID",
-			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/1",
-			"time": 94,
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/15",
+			"time": 113,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -164,7 +164,7 @@
 			"tests": {
 				"check response status is 200 OK": true,
 				"Objects inside response contain": true,
-				"Your test name": true
+				"Check updated Recorded has been updated successfully": false
 			},
 			"testPassFailCounts": {
 				"check response status is 200 OK": {
@@ -175,19 +175,19 @@
 					"pass": 1,
 					"fail": 0
 				},
-				"Your test name": {
-					"pass": 1,
-					"fail": 0
+				"Check updated Recorded has been updated successfully": {
+					"pass": 0,
+					"fail": 1
 				}
 			},
 			"times": [
-				94
+				113
 			],
 			"allTests": [
 				{
 					"check response status is 200 OK": true,
 					"Objects inside response contain": true,
-					"Your test name": true
+					"Check updated Recorded has been updated successfully": false
 				}
 			]
 		},
@@ -195,7 +195,7 @@
 			"id": "e69e6d75-2fdf-4dd5-be71-d9deb2aa511a",
 			"name": "DeleteRecord",
 			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/1",
-			"time": 98,
+			"time": 165,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -210,7 +210,7 @@
 				}
 			},
 			"times": [
-				98
+				165
 			],
 			"allTests": [
 				{
@@ -220,7 +220,7 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 732,
+	"totalTime": 1780,
 	"collection": {
 		"requests": [
 			{
